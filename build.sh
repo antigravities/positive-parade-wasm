@@ -111,7 +111,7 @@ EOF
         fi
 
         i=$((i+1))
-        sleep 5
+        sleep 10
     done
 
     set -eo pipefail
@@ -120,6 +120,8 @@ EOF
         echo "Failed to connect to the VM"
         exit 1
     fi
+
+    sleep 10
 
     sshpass -pubuntu1 scp -P 63772 -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null /tmp/Dockerfile ubuntu@localhost:/home/ubuntu/Dockerfile
     sshpass -pubuntu1 scp -P 63772 -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null /tmp/install.sh ubuntu@localhost:/home/ubuntu/install.sh
